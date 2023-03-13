@@ -1,11 +1,20 @@
 package nworld.dev.helloboot;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.Objects;
 
+@RestController
 public class HelloController {
-    public String hello(String name) {
-        SimpleHelloService helloService = new SimpleHelloService();
+    private final HelloService helloService;
 
-        return helloService.sayHello(Objects.requireNonNull(name)); // name값이 null이 아닐때만
+    public HelloController(HelloService helloService) {
+        this.helloService = helloService;
+    }
+
+    @GetMapping("/hello")
+    public String hello(String name) {
+        return helloService.sayHello(Objects.requireNonNull(name));
     }
 }
