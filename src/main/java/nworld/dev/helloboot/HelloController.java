@@ -17,4 +17,9 @@ public class HelloController {
     public String hello(String name) {
         return helloService.sayHello(Objects.requireNonNull(name));
     }
+
+    @GetMapping("/hello2")
+    public String hello2(String car) {
+        return helloService.sayCars(Objects.requireNonNull(car));
+    }
 }

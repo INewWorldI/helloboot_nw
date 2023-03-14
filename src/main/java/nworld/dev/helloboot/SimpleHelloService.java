@@ -8,4 +8,9 @@ public class SimpleHelloService implements HelloService {
     public String sayHello(String name) {
         return "Hello " + name;
     }
+
+    @Override
+    public String sayCars(String car) {
+        return "Im Ride to " + car;
+    }
 }
