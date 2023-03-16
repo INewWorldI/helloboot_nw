@@ -29,6 +29,14 @@ public class HelloApiTest {
 
         assertThat(res.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(res.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
-        assertThat(res.getBody()).isEqualTo("Im Ride to BMW M3");
+        assertThat(res.getBody()).isEqualTo("I Drive BMW M3");
+    }
+
+    @Test
+    void failsHelloApi() {
+        TestRestTemplate restTemplate = new TestRestTemplate();
+
+        ResponseEntity<String> res = restTemplate.getForEntity("http://localhost:8080/hello?name=", String.class);
+        assertThat(res.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
