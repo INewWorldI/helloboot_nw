@@ -1,2 +1,3 @@
 nworld.dev.config.autoconfig.DispatcherServletConfig
 nworld.dev.config.autoconfig.TomcatWebServerConfig
+nworld.dev.config.autoconfig.JettyWebServerConfig
